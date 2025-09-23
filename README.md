@@ -14,7 +14,7 @@ ___________________________________________________________________
   2. Multi-Layer Parsing: Automatically decodes Ethernet, IP, TCP, and UDP headers so you don't have to.
   3. Detailed Payload View: Inspect the actual data being sent in a clean hexadecimal and ASCII layout.
   4. Save for Later: Export your capture session to a .pcap file and analyze it later in tools like Wireshark.
-  5.Flexible Controls: Use command-line arguments to specify the packet count, capture duration, and output file.
+  5. Flexible Controls: Use command-line arguments to specify the packet count, capture duration, and output file.
 
 _____________________________________________________________________
 
