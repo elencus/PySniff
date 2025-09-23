@@ -28,13 +28,13 @@ ______________________________________________________________________
 🛠 Installation
 Setting up PySniff is quick and easy. Just follow these steps in your terminal:
 
-# Clone the repository:
+Clone the repository:
 >>git clone https://github.com/elencus/pysniff.git
 
-# Navigate into the project folder:
+Navigate into the project folder:
 >>cd pysniff
 
-# Install the required packages:
+Install the required packages:
 >>pip install -r requirements.txt
 _____________________________________________________________________
 
@@ -45,21 +45,21 @@ First, you'll be prompted to select a network interface. Then, the capture will 
 Basic Usage
 To start a simple, unlimited capture session:
 
-# On Linux / macOS:
+On Linux / macOS:
 >>sudo python3 main.py
 
-# On Windows (run in an Administrator terminal):
+On Windows (run in an Administrator terminal):
 >>python main.py
 
-# Advanced Usage with CLI Options, you can control the capture session with the following arguments:
-# --count: The number of packets to capture.
-# --timeout: The duration in seconds to run the capture.
-# --save: The filename for saving the capture (.pcap).
+ Advanced Usage with CLI Options, you can control the capture session with the following arguments:
+ --count: The number of packets to capture.
+ --timeout: The duration in seconds to run the capture.
+ --save: The filename for saving the capture (.pcap).
 
-# Example: Capture 100 packets and save them to capture.pcap
+Example: Capture 100 packets and save them to capture.pcap
 >>sudo python3 main.py --count 100 --save my_capture.pcap
 
-# Example: Capture packets for 60 seconds.
+Example: Capture packets for 60 seconds.
 >>sudo python3 main.py --timeout 60
 
 #To stop a capture at any time, simply press Ctrl+C.
