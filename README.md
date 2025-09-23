@@ -30,7 +30,7 @@ Setting up PySniff is quick and easy. Just follow these steps in your terminal:
 
 Clone the repository
 ```
->> git clone https://github.com/elencus/pysniff.git
+>> git clone https://github.com/elencus/PySniff.git
 ```
 Navigate into the project folder
 ```
