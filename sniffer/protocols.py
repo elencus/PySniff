@@ -1,3 +1,7 @@
+from scapy.layers.http import HTTPRequest, HTTPResponse
+from scapy.layers.tls.all import TLS, TLSServerHello, TLSClientHello
+
+
 def parse_ethernet_frame(packet):
     # parses the Ethernet frame from the packet.
     dest_mac = packet.dst
@@ -39,3 +43,48 @@ def parse_udp_datagram(udp_datagram):
     )
     payload = bytes(udp_datagram.payload)
     return info_string, payload
+
+
+def parse_http_request(http_request):
+    # parses basic http request headers
+    try:
+        method = http_request.Method.decode()
+        host = http_request.Host.decode()
+        path = http_request.Path.decode()
+        return f"\t\t[+] HTTP Request: {method} http://{host}{path}"
+    except Exception as e:
+        print(f"[!] An error occured: {e}")
+
+
+def parse_http_response(http_response):
+    # parses http response
+    try:
+        status = http_response.Status_Code.decode()
+        reason = http_response.Reason_Phrase.decode()
+        return f"\t\t[+] HTTP Response: {status} {reason}"
+    except Exception as e:
+        return f"[!] An error occured: {e}"
+
+
+def parse_tls_handshake(tls_layer):
+    if tls_layer.haslayer(TLSClientHello):
+        client_hello = tls_layer[TLSClientHello]
+        try:
+            sni = client_hello.ext_servername.decode()
+        except Exception:
+            sni = "N/A"
+        return (
+            f"\t\t[+] TLS Client Hello\n"
+            f"\t\t\t- Version: {client_hello.version}\n"
+            f"\t\t\t- Ciphers: {len(client_hello.ciphers)} offered\n"
+            f"\t\t\t- SNI: {sni}"
+        )
+    elif tls_layer.haslayer(TLSServerHello):
+        server_hello = tls_layer[TLSServerHello]
+        return (
+            f"\t\t[+] TLS Server Hello\n"
+            f"\t\t\t- Version: {server_hello.version}\n"
+            f"\t\t\t- Cipher: {server_hello.cipher}"
+        )
+    else:
+        return "\t\t[+] TLS Record (Encrypted data)"
