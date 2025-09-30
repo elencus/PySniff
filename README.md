@@ -70,4 +70,8 @@ Capture packets for 60 seconds
 ```
 >> sudo python3 main.py --timeout 60
 ```
+Filter packets by protocol, host or port
+```
+>> sudo python3 main.py --filter "tcp"
+```
 To stop a capture at any time, simply press Ctrl+C.
