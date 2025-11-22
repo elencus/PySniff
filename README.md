@@ -34,7 +34,7 @@ Clone the repository
 ```
 Navigate into the project folder
 ```
->> cd pysniff
+>> cd PySniff
 ```
 Install the required packages
 ```
